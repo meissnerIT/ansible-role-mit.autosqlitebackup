@@ -1,0 +1,9 @@
+# Source: mit.autosqlitebackup
+
+# List of DBNAMES for Daily/Weekly Backup e.g. "fancyname1:/var/lib/myapp/data/database.sqlite fancyname2:/var/lib/myotherapp/myotherapp.sqlite"
+# use fancyname:/path/to/sqlite/file.db
+DBNAMES=""
+
+BACKUPDIR="/var/lib/autosqlitebackup"
+MAILADDR="root"
+

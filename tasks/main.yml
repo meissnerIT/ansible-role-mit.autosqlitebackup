@@ -1,0 +1,25 @@
+---
+
+- name: Ensure /etc/default/autosqlitebackup
+  copy: src=default-autosqlitebackup dest=/etc/default/autosqlitebackup force=no
+
+- name: Set BACKUPDIR
+  lineinfile:
+    dest: /etc/default/autosqlitebackup
+    regexp: 'BACKUPDIR='
+    line: 'BACKUPDIR="{{ autosqlitebackup_BACKUPDIR }}"'
+  when: autosqlitebackup_BACKUPDIR is defined
+
+- name: Set MAILADDR
+  lineinfile:
+    dest: /etc/default/autosqlitelbackup
+    regexp: 'MAILADDR='
+    line: 'MAILADDR="{{ autosqlitebackup_MAILADDR }}"'
+  when: autosqlitebackup_MAILADDR is defined
+
+- name: Add cron.d script to do autosqlitebackup
+  copy: src=cron.d-local-autosqlitebackup dest=/etc/cron.d/local-autosqlitebackup
+
+- name: Add cron.daily script local-autosqlitebackup-cleanup
+  copy: src=local-autosqlitebackup-cleanup dest=/etc/cron.daily/local-autosqlitebackup-cleanup mode=0755
+
