@@ -18,7 +18,7 @@
 
 - name: Set MAILADDR
   lineinfile:
-    dest: /etc/default/autosqlitelbackup
+    dest: /etc/default/autosqlitebackup
     regexp: 'MAILADDR='
     line: 'MAILADDR="{{ autosqlitebackup_MAILADDR }}"'
   when: autosqlitebackup_MAILADDR is defined
@@ -27,5 +27,5 @@
   copy: src=cron.d-local-autosqlitebackup dest=/etc/cron.d/local-autosqlitebackup
 
 - name: Add cron.daily script local-autosqlitebackup-cleanup
-  copy: src=local-autosqlitebackup-cleanup dest=/etc/cron.daily/local-autosqlitebackup-cleanup mode=0755
+  copy: src=cron.daily-local-autosqlitebackup-cleanup dest=/etc/cron.daily/local-autosqlitebackup-cleanup mode=0755
 
