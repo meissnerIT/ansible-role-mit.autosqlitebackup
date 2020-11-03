@@ -1,7 +1,13 @@
 ---
 
+- name: Ensure sqlite3
+  apt: pkg=sqlite3
+
 - name: Ensure /etc/default/autosqlitebackup
   copy: src=default-autosqlitebackup dest=/etc/default/autosqlitebackup force=no
+
+- name: Ensure /usr/local/sbin/autosqlitebackup
+  copy: src=autosqlitebackup dest=/usr/local/sbin/autosqlitebackup mode=0755
 
 - name: Set BACKUPDIR
   lineinfile:

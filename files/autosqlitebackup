@@ -109,8 +109,8 @@ ENCRYPTION_SUFFIX=".enc"
 # Configuration options ===
 #=====================================================================
 
-if [ -f /etc/autosqlitebackup/autosqlitebackup.conf ]; then
-    . /etc/autosqlitebackup/autosqlitebackup.conf
+if [ -f /etc/default/autosqlitebackup ]; then
+    . /etc/default/autosqlitebackup
 fi
 
 #=====================================================================
